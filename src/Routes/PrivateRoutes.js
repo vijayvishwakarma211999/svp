@@ -1,11 +1,12 @@
 import Loadable from "react-loadable";
-import MainLayout from "../Layout/MainLayout";
 import { ROUTE_DEFINATION } from "../utils/constant/route.constant";
 import { Navigate } from "react-router-dom";
+import MainLayout from "../Layout";
+import Home from "../Componenet/Pages/Home";
 
-const Home =Loadable({
-loader:()=> import("../Componenet/Pages/Home"),
-});
+// const Home =Loadable({
+// loader:()=> import("../Componenet/Pages/Home"),
+// });
 const PrivateRoutes ={
     element:<MainLayout/>,
     children:[

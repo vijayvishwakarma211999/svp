@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRoutes } from "react-router-dom";
-
-// project import
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
+
+// project import
+
 
 // ==================================|| ROUTING RENDER ||================================== //
 

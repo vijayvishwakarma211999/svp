@@ -9,6 +9,7 @@ import CardComponenet from "../../Card";
 const Home = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
+  const [page , setPage] = useState(1);
   useEffect(() => {
     dispatch(HomeAsync())
       .unwrap()
@@ -19,7 +20,7 @@ const Home = () => {
         return;
         //  console.log(err,"err+++++++++++")
       });
-  }, []);
+  }, [page]);
   console.log(data, "data___________");
 
   return (
@@ -34,7 +35,7 @@ const Home = () => {
       })}
       </Grid>
 
-      <Pagination color="primary" count={10} />
+      <Pagination color="primary" count={10} onChange={(e, value)=>setPage(value)} />
     </>
   );
 };

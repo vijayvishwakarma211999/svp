@@ -13,13 +13,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoginAsync } from "../../../Redux/AsyncThunk/login.asyncThunk";
 
 const Login = () => {
   // const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const { userLoginStatus } = useSelector((state)=>state)
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -49,16 +49,16 @@ const Login = () => {
         }}
         onSubmit={(values) => {
           console.log(values, "value_____________");
-          // dispatch(userLoginAsync(values)),unwrap().then((res)=>{
-          //   return(
-          //     console.log(res,"res___________")
-          //   )
-          // })
-          // .catch((err)=>{
-          //   return(
-          //     console.log(err,"err__________________")
-          //   )
-          // })
+          dispatch(userLoginAsync(values)).unwrap().then((res)=>{
+            return(
+              console.log(res,"res___________")
+            )
+          })
+          .catch((err)=>{
+            return(
+              console.log(err,"err__________________")
+            )
+          })
         }}
       >
         {({

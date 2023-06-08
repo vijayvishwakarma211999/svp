@@ -9,13 +9,19 @@ userLoginStatus: null,
 export const LoginSlice = createSlice({
     name:"login",
     initialState,
-    reducers:{},
+    reducers:{
+        removeToken: (state, action) => {
+            state.token = null;
+            state.user = null;
+          },
+    },
     extraReducers:(builder)=>{
         builder.addCase(userLoginAsync.pending,(state, action)=>{
             state.userLoginStatus = THUNK_STATUS.LOADING;
         });
         builder.addCase(userLoginAsync.fulfilled,(state,action)=>{
             state.userLoginAsync = THUNK_STATUS.SUCCESS;
+            state.token = action?.payload?.data;
         });
         builder.addCase(userLoginAsync.rejected,(state,action)=>{
             state.userLoginAsync=THUNK_STATUS.FAILED;

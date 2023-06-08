@@ -1,4 +1,3 @@
-import Loadable from "react-loadable";
 import { ROUTE_DEFINATION } from "../utils/constant/route.constant";
 import { Navigate } from "react-router-dom";
 import MainLayout from "../Layout";
@@ -15,6 +14,7 @@ const PrivateRoutes ={
             title:ROUTE_DEFINATION.BASE,
             element:<Home/>,
         },
+      
         {
             path: "*",
             title: "",

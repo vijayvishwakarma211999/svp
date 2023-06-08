@@ -1,11 +1,13 @@
 export const ROUTE_NAME ={
     BASE:"/",
     HOME:"/",
-    LOGIN:"",
+    // LOGIN:"",
+    SIGN_UP:"/sign_up"
 };
 export const ROUTE_DEFINATION ={
 BASE:ROUTE_NAME.BASE,
 HOME:ROUTE_NAME.HOME,
-LOGIN:ROUTE_NAME.LOGIN
+// LOGIN:ROUTE_NAME.LOGIN,
+SIGN_UP:ROUTE_NAME.SIGN_UP
 
 };

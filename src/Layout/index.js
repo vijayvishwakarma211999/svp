@@ -28,7 +28,7 @@ export default function MiniDrawer() {
       <CssBaseline />
       <AppBarComponent {...{open,setOpen}} />
       <SidebarComponent {...{open,setOpen}} />
-      <Box component="main" sx={{ flexGrow: 1 } } >
+      <Box component="main" sx={{ flexGrow: 1 , p:3 } } >
         <DrawerHeader />
         <Outlet />
       </Box>

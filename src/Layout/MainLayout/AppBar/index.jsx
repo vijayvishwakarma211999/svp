@@ -57,12 +57,7 @@ const navigate = useNavigate();
             </Typography>
           </Toolbar>
           <Stack p={2}>
-            <Button 
-            // onClick={()=>navigate(ROUTE_DEFINATION.PROFILE)} 
-            
-            variant="contained" href={ROUTE_DEFINATION.PROFILE}>
-              Profile
-            </Button>
+        git 
           </Stack>
         </Box>
       </AppBar>

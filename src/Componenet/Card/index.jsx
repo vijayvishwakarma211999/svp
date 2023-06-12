@@ -3,7 +3,7 @@ import React from "react";
 import { Card, CardContent, CardMedia, Grid, Pagination, Typography } from "@mui/material";
 
 
-const CardComponenet = ({images}) => {
+const CardComponenet = ({images,titles,id}) => {
 
 
   return (
@@ -16,11 +16,11 @@ const CardComponenet = ({images}) => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              Lizard
+            {titles}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+                       {id}
+
             </Typography>
           </CardContent>
          

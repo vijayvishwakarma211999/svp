@@ -31,7 +31,7 @@ const Home = () => {
       {data.map((item)=>{
         return(
           <Grid sm={4} p={2} justifyContent="center" display="flex">
-          <CardComponenet images={item?.category?.image} />
+          <CardComponenet id={item?.id} images={item?.category?.image} titles={item?.title} />
         </Grid>
         )
       })}

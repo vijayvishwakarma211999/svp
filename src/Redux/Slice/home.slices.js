@@ -12,15 +12,15 @@ export const homeSlice = createSlice({
     reducers:{},
     extraReducers:(builder)=>{
         builder.addCase(HomeAsync.pending,(state,action)=>{
-            state.data=THUNK_STATUS.LOADING;
+            state.homeStatus =THUNK_STATUS.LOADING;
         });
         builder.addCase(HomeAsync.fulfilled,(state,action)=>{
-            state.data=THUNK_STATUS.SUCCESS;
+            state.homeStatus=THUNK_STATUS.SUCCESS;
             console.log(action,"action")
             state.data=action?.payload?.data;
         });
         builder.addCase(HomeAsync.rejected,(state,action)=>{
-            state.data=THUNK_STATUS.FAILED;
+            state.homeStatus=THUNK_STATUS.FAILED;
         });
     },
 });

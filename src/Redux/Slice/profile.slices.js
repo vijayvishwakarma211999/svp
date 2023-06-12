@@ -13,16 +13,16 @@ initialState,
 reducers:{},
 extraReducers:(builder)=>{
     builder.addCase(ProfileAsyncThunk.pending,(state , action)=>{
-        state.data = THUNK_STATUS.LOADING;
+        state.ProfileStatus = THUNK_STATUS.LOADING;
     });
     builder.addCase(ProfileAsyncThunk.fulfilled,(state , action)=>{
-        state.data = THUNK_STATUS.SUCCESS;
-        console.log(action,"action_______________________")
+        state.ProfileStatus = THUNK_STATUS.SUCCESS;
+        // console.log(action,"action_______________________")
 
         state.data = action?.payload?.data;
     });
     builder.addCase(ProfileAsyncThunk.rejected,(state,action)=>{
-        state.data = THUNK_STATUS.FAILED;
+        state.ProfileStatus = THUNK_STATUS.FAILED;
     });
 },
 });

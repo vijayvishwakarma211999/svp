@@ -31,7 +31,7 @@ const AppBarComponent = ({ open, setOpen }) => {
       }),
     }),
   }));
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleDrawerOpen = () => {
     setOpen(!open);
   };
@@ -57,7 +57,9 @@ const navigate = useNavigate();
             </Typography>
           </Toolbar>
           <Stack p={2}>
-        git 
+            <Button variant="contained" href={ROUTE_DEFINATION.PROFILE}>
+              Profile
+            </Button>
           </Stack>
         </Box>
       </AppBar>

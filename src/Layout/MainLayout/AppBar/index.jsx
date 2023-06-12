@@ -56,11 +56,16 @@ const AppBarComponent = ({ open, setOpen }) => {
               Mini variant drawer
             </Typography>
           </Toolbar>
-          <Stack p={2}>
+          <Stack direction="row" p={2}>
             <Button variant="contained" href={ROUTE_DEFINATION.PROFILE}>
               Profile
             </Button>
+            <Button variant="contained" href={ROUTE_DEFINATION.ADD_CATEGORIES}>
+              Add Categories
+            </Button>
+
           </Stack>
+
         </Box>
       </AppBar>
     </>

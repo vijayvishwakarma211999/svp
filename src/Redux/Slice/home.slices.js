@@ -1,27 +1,72 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { HomeAsync } from "../AsyncThunk/home.asyncThunk"
+import { AddCategorieAsync, AddProductAsync, CategorieAsync, HomeAsync, HomeAsyncThunk } from "../AsyncThunk/home.asyncThunk"
 import { THUNK_STATUS } from "../Constant/reduxConstant"
 
 const initialState={
     data:null,
-    homeStatus:null,
+    categories:null,
+    status:{
+        homeStatus:null,
+        categoriesStatus:null,
+        productStatus:null,
+
+    }
 }
 export const homeSlice = createSlice({
     name:"getBikeList",
     initialState,
     reducers:{},
     extraReducers:(builder)=>{
-        builder.addCase(HomeAsync.pending,(state,action)=>{
-            state.homeStatus =THUNK_STATUS.LOADING;
+        builder.addCase(HomeAsyncThunk.pending,(state,action)=>{
+            state.status.homeStatus =THUNK_STATUS.LOADING;
         });
-        builder.addCase(HomeAsync.fulfilled,(state,action)=>{
-            state.homeStatus=THUNK_STATUS.SUCCESS;
-            console.log(action,"action")
+        builder.addCase(HomeAsyncThunk.fulfilled,(state,action)=>{
+            state.status.homeStatus=THUNK_STATUS.SUCCESS;
+            // console.log(action,"action")
             state.data=action?.payload?.data;
         });
-        builder.addCase(HomeAsync.rejected,(state,action)=>{
-            state.homeStatus=THUNK_STATUS.FAILED;
+        builder.addCase(HomeAsyncThunk.rejected,(state,action)=>{
+            state.status.homeStatus=THUNK_STATUS.FAILED;
         });
+
+// categories 
+        builder.addCase(CategorieAsync.pending,(state,action)=>{
+            state.status.categoriesStatus =THUNK_STATUS.LOADING;
+        });
+        builder.addCase(CategorieAsync.fulfilled,(state,action)=>{
+            state.status.categoriesStatus=THUNK_STATUS.SUCCESS;
+            // console.log(action,"action catgories___________________")
+            // state.data=action?.payload?.data;
+        });
+        builder.addCase(CategorieAsync.rejected,(state,action)=>{
+            state.status.categoriesStatus=THUNK_STATUS.FAILED;
+        });
+        //  Add categories
+
+        builder.addCase(AddCategorieAsync.pending,(state,action)=>{
+            state.status.categoriesStatus =THUNK_STATUS.LOADING;
+        });
+        builder.addCase(AddCategorieAsync.fulfilled,(state,action)=>{
+
+            state.status.categoriesStatus=THUNK_STATUS.SUCCESS;
+            
+        });
+        builder.addCase(AddCategorieAsync.rejected,(state,action)=>{
+            state.status.categoriesStatus=THUNK_STATUS.FAILED;
+        });
+             //  Add products
+
+             builder.addCase(AddProductAsync.pending,(state,action)=>{
+                state.status.productStatus =THUNK_STATUS.LOADING;
+            });
+            builder.addCase(AddProductAsync.fulfilled,(state,action)=>{
+    
+                state.status.productStatus=THUNK_STATUS.SUCCESS;
+                
+            });
+            builder.addCase(AddProductAsync.rejected,(state,action)=>{
+                state.status.productStatus=THUNK_STATUS.FAILED;
+            });
     },
 });
 export const homeState = (state)=> state.homeState;

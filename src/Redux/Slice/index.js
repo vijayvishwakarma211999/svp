@@ -7,4 +7,5 @@ export default combineReducers({
   login: loginSlices,
   getBikeList: homeSlices,
   Profile:profileSlices,
+  
 })

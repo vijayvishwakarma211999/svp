@@ -3,6 +3,9 @@ export let SERVICE_ROUTES ={
     USER:"users/",
     HOME : "products",
     PROFILE:"auth/profile",
+    CATEGORY:"categories",
+    ADD_CATEGORY:"categories/",
+    ADD_PRODUCT:"products/",
 };
  export const  METHODS ={
      GET: "GET",

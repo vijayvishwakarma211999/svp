@@ -6,6 +6,7 @@ import Profile from "../Componenet/Pages/Profile";
 import About from "../Componenet/Pages/About";
 import Contact from "../Componenet/Pages/Contact";
 import Services from "../Componenet/Pages/Services";
+import AddCategories from "../Componenet/Pages/Add_Categories";
 
 // const Home =Loadable({
 // loader:()=> import("../Componenet/Pages/Home"),
@@ -38,6 +39,12 @@ const PrivateRoutes ={
             title:ROUTE_DEFINATION.CONTACT,
             element:<Contact/>,
         },
+        {
+            path:ROUTE_DEFINATION.ADD_CATEGORIES,
+            title:ROUTE_DEFINATION.ADD_CATEGORIES,
+            element:<AddCategories/>,
+        },
+
         {
             path: "*",
             title: "",

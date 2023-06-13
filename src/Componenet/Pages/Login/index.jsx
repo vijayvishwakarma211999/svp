@@ -1,7 +1,9 @@
 // Render Prop
 import React from "react";
 import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
-import BackGround from "../../../asets/images/KTM.jpg";
+// import BackGround from "../../../asets/images/KTM.jpg";
+import BackGround from "../../../asets/images/ktmm.avif";
+
 import {
   Box,
   Button,

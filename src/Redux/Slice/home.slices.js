@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { AddCategorieAsync, AddProductAsync, CategorieAsync, HomeAsync, HomeAsyncThunk } from "../AsyncThunk/home.asyncThunk"
+import { AddCategorieAsync, AddProductAsync, CategorieAsync,HomeAsyncThunk } from "../AsyncThunk/home.asyncThunk"
 import { THUNK_STATUS } from "../Constant/reduxConstant"
 
 const initialState={

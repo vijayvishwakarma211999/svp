@@ -44,6 +44,11 @@ const PrivateRoutes ={
             title:ROUTE_DEFINATION.ADD_CATEGORIES,
             element:<AddCategories/>,
         },
+        {
+            path:ROUTE_DEFINATION.ADD_PRODUCT,
+            title:ROUTE_DEFINATION.ADD_PRODUCT,
+            element:<AddCategories/>,
+        },
 
         {
             path: "*",

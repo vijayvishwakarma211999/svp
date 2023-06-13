@@ -6,6 +6,8 @@ export let SERVICE_ROUTES ={
     CATEGORY:"categories",
     ADD_CATEGORY:"categories/",
     ADD_PRODUCT:"products/",
+
+
 };
  export const  METHODS ={
      GET: "GET",

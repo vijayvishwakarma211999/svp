@@ -8,7 +8,7 @@ const CardComponenet = ({images,titles,id}) => {
 
   return (
    
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ minWidth: 345 }}>
           <CardMedia
             sx={{ height: 140 }}
             image={images}

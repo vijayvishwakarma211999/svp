@@ -60,9 +60,12 @@ const AppBarComponent = ({ open, setOpen }) => {
             <Button variant="contained" href={ROUTE_DEFINATION.PROFILE}>
               Profile
             </Button>
-            <Button variant="contained" href={ROUTE_DEFINATION.ADD_CATEGORIES}>
+            {/* <Button variant="contained" href={ROUTE_DEFINATION.ADD_CATEGORIES}>
               Add Categories
             </Button>
+            <Button variant="contained" href={ROUTE_DEFINATION.ADD_PRODUCT}>
+              Add Product
+            </Button> */}
 
           </Stack>
 

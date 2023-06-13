@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoginAsync } from "../../../Redux/AsyncThunk/login.asyncThunk";
 import { ROUTE_DEFINATION } from "../../../utils/constant/route.constant";
+import { ProfileAsyncThunk } from "../../../Redux/AsyncThunk/profile.asyncThunk";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Login = () => {
         overflow: "hidden",
       }}
     >
-      <CssBaseline/>
+      <CssBaseline />
       <Formik
         initialValues={{
           email: "",
@@ -41,16 +42,21 @@ const Login = () => {
         }}
         onSubmit={(values) => {
           console.log(values, "value_____________");
-          dispatch(userLoginAsync(values)).unwrap().then((res)=>{
-            return(
-              console.log(res,"res___________")
-            )
-          })
-          .catch((err)=>{
-            return(
-              console.log(err,"err__________________")
-            )
-          })
+          dispatch(userLoginAsync(values))
+            .unwrap()
+            .then((res) => {
+              dispatch(ProfileAsyncThunk())
+                .unwrap()
+                .then((res) => {
+                  console.log(res, "_________profile response");
+                })
+                .catch((err) => {
+                  console.log(err, "_____________________");
+                });
+            })
+            .catch((err) => {
+              return console.log(err, "err__________________");
+            });
         }}
       >
         {({
@@ -135,7 +141,7 @@ const Login = () => {
                       </Link>
                     </Grid>
                     <Grid item>
-                      <Link href={(ROUTE_DEFINATION.SIGN_UP)} variant="body2">
+                      <Link href={ROUTE_DEFINATION.SIGN_UP} variant="body2">
                         {"Don't have an account? Sign Up"}
                       </Link>
                     </Grid>
@@ -144,12 +150,10 @@ const Login = () => {
               </Box>
             </Box>
           </form>
-  )}
+        )}
       </Formik>
     </Box>
   );
 };
 
 export default Login;
-
-

@@ -16,8 +16,9 @@ extraReducers:(builder)=>{
         state.ProfileStatus = THUNK_STATUS.LOADING;
     });
     builder.addCase(ProfileAsyncThunk.fulfilled,(state , action)=>{
+        console.log(action,"action_______________________Profile")
+
         state.ProfileStatus = THUNK_STATUS.SUCCESS;
-        // console.log(action,"action_______________________")
 
         state.data = action?.payload?.data;
     });

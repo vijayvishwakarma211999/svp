@@ -3,7 +3,7 @@ import { Avatar, Box, Button, Checkbox, FormControlLabel, TextField, Typography 
 import { Formik } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { AddCategorieAsync } from '../../../Redux/AsyncThunk/home.asyncThunk'
+import { AddCategorieAsync } from '../../../../Redux/AsyncThunk/home.asyncThunk'
 
 const AddCategories = () => {
     const dispatch = useDispatch();
@@ -69,7 +69,7 @@ const AddCategories = () => {
                  sx={{ mt: 3, mb: 2 }}
                >
                  Submit
-               </Button>
+               </Button>    
              
              </Box>
            </Box>

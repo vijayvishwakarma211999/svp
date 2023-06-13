@@ -4,19 +4,15 @@ import React from "react";
 import MuiDrawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 
-import { ChevronLeft, Inbox } from "@mui/icons-material";
-import Mail from "@mui/icons-material/Mail";
-import { List, styled,  } from "@mui/material";
-import MenueList from "../itemList/iconLIst";
+import { Button, List, styled,  } from "@mui/material";
+import  ItemList, { AdminList, CustmerList } from "../itemList";
 import { useNavigate } from "react-router-dom";
+import { removeToken } from "../../../Redux/Slice/login.slices";
+import { useDispatch } from "react-redux";
 const SidebarComponent = ({ open, setOpen }) => {
 const navigate = useNavigate()
-
+const dispatch = useDispatch()
   const drawerWidth = 240;
 
   const openedMixin = (theme) => ({
@@ -64,6 +60,11 @@ const navigate = useNavigate()
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   }));
+
+  const handleLogout=()=>{
+    dispatch(removeToken())
+  }
+
   return (
     <Drawer variant="permanent" open={open}>
       <DrawerHeader>
@@ -74,36 +75,12 @@ const navigate = useNavigate()
       <Divider />
       <List>
      
-
-{MenueList.map((item,index)=>{
-  return (
-  <ListItem key={index} disablePadding sx={{ display: "block" }}>
-  <ListItemButton
-  onClick={()=>navigate(item.path)}
-    sx={{
-      minHeight: 48,
-      justifyContent: open ? "initial" : "center",
-      px: 2.5,
-    }}
-  >
-    <ListItemIcon
-      sx={{
-        minWidth: 0,
-        mr: open ? 3 : "auto",
-        justifyContent: "center",
-      }}
-    >
-      {/* {index % 2 === 0 ? <Inbox /> : <Mail />} */}
-      {item.icon}
-    </ListItemIcon>
-    <ListItemText primary={item.value} sx={{ opacity: open ? 1 : 0 }} />
-  </ListItemButton>
-</ListItem>
-  )
-})}
+<ItemList {...{open,setOpen}}/>
 
       </List>
-     
+      <Button variant="contained" onClick={handleLogout}>
+Logout 
+     </Button>
     </Drawer>
   );
 };

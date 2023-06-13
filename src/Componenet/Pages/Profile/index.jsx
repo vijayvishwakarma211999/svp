@@ -19,7 +19,7 @@ const Profile = () => {
         return;
       });
   },[]);
-console.log(data,"dara____________________")
+// console.log(data,"dara____________________")
   return (
     <Box sx={{ maxWidth: 345 }}>
     

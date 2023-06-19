@@ -4,6 +4,7 @@ import { THUNK_STATUS } from "../Constant/reduxConstant"
 
 const initialState={
     data:null,
+
     categories:null,
     status:{
         homeStatus:null,
@@ -35,8 +36,8 @@ export const homeSlice = createSlice({
         });
         builder.addCase(CategorieAsync.fulfilled,(state,action)=>{
             state.status.categoriesStatus=THUNK_STATUS.SUCCESS;
-            // console.log(action,"action catgories___________________")
-            // state.data=action?.payload?.data;
+            console.log(action.payload.data,"action catgories___________________")
+            state.categories=action?.payload?.data;
         });
         builder.addCase(CategorieAsync.rejected,(state,action)=>{
             state.status.categoriesStatus=THUNK_STATUS.FAILED;

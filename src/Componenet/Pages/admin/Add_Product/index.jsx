@@ -1,8 +1,18 @@
 import { EmojiEmotions } from "@mui/icons-material";
-import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Formik } from "formik";
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ButtonAtoms from "../../../../atom/Button";
 import TextFiledAtoms from "../../../../atom/TextFiled";
 import TypographyAtom from "../../../../atom/Typography";
@@ -10,6 +20,12 @@ import { AddProductAsync } from "../../../../Redux/AsyncThunk/home.asyncThunk";
 
 const AddProduct = () => {
   const dispatch = useDispatch();
+  const [fil,setFil]=useState("");
+
+  const categories = useSelector((state) => state?.getBikeList?.categories);
+  const handelFilChange = (e, value) => {
+    setFil(e.target.value);
+  };
   return (
     <>
       <Formik
@@ -17,13 +33,14 @@ const AddProduct = () => {
           description: "",
           price: "",
           title: "",
-          categoryId: "",
+          // categoryId: "",
         }}
         onSubmit={(values) => {
           console.log(values, "intitalvalue");
+          values.categoryId = fil;
           values.images = ["https://placeimg.com/640/480/any"];
           // values.title ="New Product"
-          values.categoryId = "1";
+          // values.categoryId = "1";
           dispatch(AddProductAsync(values))
             .unwrap()
             .then((res) => {
@@ -34,7 +51,13 @@ const AddProduct = () => {
             });
         }}
       >
-        {({ values, handleChange, handleBlur, handleSubmit }) => (
+        {({
+          values,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          handelFilterChange,
+        }) => (
           <form onSubmit={handleSubmit}>
             <Box
               sx={{
@@ -55,7 +78,7 @@ const AddProduct = () => {
                   justifyContent: "center",
                   flexDirection: "column",
                   width: "100%",
-                  maxWidth: "460px"
+                  maxWidth: "460px",
                 }}
               >
                 <TextFiledAtoms
@@ -94,7 +117,7 @@ const AddProduct = () => {
                   // autoComplete="=proce"
                   autoFocus
                 />
-                <TextFiledAtoms
+                {/* <TextFiledAtoms
                   margin="normal"
                   required
                   fullWidth
@@ -105,7 +128,30 @@ const AddProduct = () => {
                   name="categoryId"
                   // autoComplete="=proce"
                   autoFocus
-                />
+                /> */}
+
+                <TypographyAtom>
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">
+                      Select Category
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      onChange={handelFilChange}
+                      id="demo-simple-select"
+                      label="Select Category"
+                      value={fil}
+                    >
+                      {categories.map((item) => {
+                        // console.log(item,"item_____________")
+                        return (
+                          <MenuItem value={item.id}>{item?.name}</MenuItem>
+                        );
+                      })}
+                    </Select>
+                  </FormControl>
+                </TypographyAtom>
+
                 <ButtonAtoms
                   type="submit"
                   fullWidth

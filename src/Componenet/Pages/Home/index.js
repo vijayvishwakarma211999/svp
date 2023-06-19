@@ -17,7 +17,7 @@ const Home = () => {
   const dispatch = useDispatch();
   // const filter = useSelector((state)=> state?.getBikeList?.data)
   const [data, setData] = useState([]);
-  const [category, setCategory] = useState([]);
+  // const [category, setCategory] = useState([]);
   const [page, setPage] = useState(1);
   const [filter , setFilter] = useState("")
 
@@ -32,25 +32,27 @@ const Home = () => {
 
   // category part
 
-  useEffect(() => {
-    dispatch(CategorieAsync())
-      .unwrap()
-      .then((res) => {
-        return setCategory(res.data);
+  // useEffect(() => {
+  //   dispatch(CategorieAsync())
+  //     .unwrap()
+  //     .then((res) => {
+  //       return setCategory(res.data);
 
-      })
-      .catch((err) => {
-        console.log(err,"err")
+  //     })
+  //     .catch((err) => {
+  //       console.log(err,"err")
 
-      });
-  }, []);
+  //     });
+  // }, []);
+  const categories = useSelector((state)=>state?.getBikeList?.categories)
 
-  // console.log(category,"__________________")
+
+  // console.log(categories,"categories__________________")
 
   return (
     <>
       <Box>
-      <SelectOptionCategories category={category} filter={filter} setFilter={setFilter} />
+      <SelectOptionCategories category={categories} filter={filter} setFilter={setFilter} />
         <Grid container>
           {data.map((item) => {
             return (

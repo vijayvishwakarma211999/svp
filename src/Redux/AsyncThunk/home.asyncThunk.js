@@ -47,7 +47,7 @@ export const AddCategorieAsync=createAsyncThunk(
 export const AddProductAsync=createAsyncThunk(
     ASYNC_ROUTES.ADD_PRODUCTS,
     async(payload,{rejectWithValue})=>{
-        console.log(payload,"title_____________________")
+        // console.log(payload,"title_____________________")
         try{
             const response = await AddProductService(payload)
             return response
